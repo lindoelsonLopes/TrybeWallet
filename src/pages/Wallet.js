@@ -1,7 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 import Header from '../components/Header';
+import { currenciesAction } from '../actions';
+import getCurrencies from '../services/currencies';
 
 class Wallet extends React.Component {
+  componentDidMount() {
+    const { currencies } = this.props;
+    getCurrencies().then((json) => {
+      currencies(json);
+    });
+  }
+
   render() {
     return (
       <div>
@@ -12,4 +23,12 @@ class Wallet extends React.Component {
   }
 }
 
-export default Wallet;
+Wallet.propTypes = {
+  currencies: propTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  currencies: (currencies) => dispatch(currenciesAction(currencies)),
+});
+
+export default connect(null, mapDispatchToProps)(Wallet);

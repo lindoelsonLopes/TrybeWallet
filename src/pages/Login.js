@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { login } from '../actions';
+import loginCss from './login.module.css';
 
 class Login extends React.Component {
   constructor() {
@@ -37,9 +38,9 @@ class Login extends React.Component {
     const { isDisabled, email, password } = this.state;
     const { userLogin } = this.props;
     return (
-      <div className="login">
+      <div className={ loginCss.login_header }>
+        <h1>Login Here</h1>
         <form className="login__form">
-          <h1>Login Here</h1>
           <label htmlFor="email">
             <input
               name="email"

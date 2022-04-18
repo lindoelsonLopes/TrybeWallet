@@ -5,7 +5,7 @@ import { expensesAction, total } from '../actions';
 import { getExchange } from '../services/currencies';
 
 const INITIAL_STATE = {
-  value: '',
+  value: '0',
   description: '',
   currency: 'USD',
   method: 'Dinheiro',

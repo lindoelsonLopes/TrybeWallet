@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   currencies: [],
   expenses: [],
   fetchcurrencies: false,
-  total: '',
+  total: '0',
   error: '',
 };
 

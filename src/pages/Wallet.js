@@ -2,16 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import Header from '../components/Header';
-import { currenciesAction } from '../actions';
-import getCurrencies from '../services/currencies';
+import { setCurrencies as currenciesAction } from '../actions';
 import Form from '../components/Form';
 
 class Wallet extends React.Component {
   componentDidMount() {
     const { currencies } = this.props;
-    getCurrencies().then((json) => {
-      currencies(json);
-    });
+    currencies();
   }
 
   render() {

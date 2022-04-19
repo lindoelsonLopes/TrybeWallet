@@ -7,6 +7,7 @@ export const CURRENCIES_FAIL = 'CURRENCIES_FAIL';
 export const CURRENCIES_SUCCESS = 'CURRENCIES_SUCCESS';
 export const EXPENSES = 'EXPENSES';
 export const TOTAL = 'TOTAL';
+export const DELETE_EXPENSES = 'DELETE_EXPENSES';
 
 export const login = (payload) => (
   { type: USER_LOGIN, payload }
@@ -40,3 +41,7 @@ export const setCurrencies = () => async (dispatch) => {
     dispatch(currenciesFail(error.message));
   }
 };
+
+export const deleteAction = (payload) => (
+  { type: DELETE_EXPENSES, payload }
+);

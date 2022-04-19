@@ -3,6 +3,7 @@ import {
   CURRENCIES,
   CURRENCIES_FAIL,
   CURRENCIES_SUCCESS,
+  DELETE_EXPENSES,
   EXPENSES,
   TOTAL,
 } from '../actions';
@@ -43,6 +44,11 @@ const wallet = (state = INITIAL_STATE, { type, payload }) => {
     return {
       ...state,
       total: payload,
+    };
+  case DELETE_EXPENSES:
+    return {
+      ...state,
+      expenses: state.expenses.filter((element) => element.id !== payload),
     };
   default:
     return state;

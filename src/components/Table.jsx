@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteAction } from '../actions';
+import { deleteAction, editExpenseAction } from '../actions';
+import './table.css';
 
 class Table extends Component {
   render() {
     const { expenses, delExpenses } = this.props;
     return (
-      <div>
-        <table>
+      <div className="table-container">
+        <table className="box-table">
           <thead>
             <tr>
-              <th>Descrição</th>
-              <th>Tag</th>
-              <th>Método de pagamento</th>
-              <th>Valor</th>
-              <th>Moeda</th>
-              <th>Câmbio utilizado</th>
-              <th>Valor convertido</th>
-              <th>Moeda de conversão</th>
+              <th>Descrição |</th>
+              <th>Tag |</th>
+              <th>Método de pagamento |</th>
+              <th>Valor |</th>
+              <th>Moeda |</th>
+              <th>Câmbio utilizado |</th>
+              <th>Valor convertido |</th>
+              <th>Moeda de conversão |</th>
               <th>Editar/Excluir</th>
             </tr>
             { expenses.map(({
@@ -44,8 +45,17 @@ class Table extends Component {
                   <td>Real</td>
                   <td>
                     <button
+                      className="button-delete"
                       type="button"
                       data-testid="delete-btn"
+                      onClick={ () => editExpenseAction(id) }
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="button-edit"
+                      type="button"
+                      data-testid="edit-btn"
                       onClick={ () => delExpenses(id) }
                     >
                       Excluir

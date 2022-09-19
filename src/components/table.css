@@ -1,0 +1,39 @@
+/* stylelint-disable font-family-name-quotes */
+
+/* stylelint-disable string-quotes */
+.table-container {
+  align-items: center;
+  background-color: #003be5;
+  border-radius: 10px;
+  display: flex;
+  height: 464px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: -280px;
+  width: 1155px;
+}
+
+.box-table {
+  align-items: center;
+  color: white;
+  display: flex;
+
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: "Epilogue";
+  padding-top: 240px;
+}
+
+.button-delete {
+  background: rgb(223, 111, 111);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  width: 100px;
+}
+
+.button-delete:hover {
+  background: red;
+  color: white;
+}

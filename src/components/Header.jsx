@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { FaUserAlt } from 'react-icons/fa';
+import Logo from '../images/logoTipo.png';
+import './header.css';
 
 class Header extends Component {
   totalValue = () => {
@@ -16,10 +19,29 @@ class Header extends Component {
     const { email } = this.props;
 
     return (
-      <header>
-        <p data-testid="email-field">{ `Email: ${email}`}</p>
-        <p data-testid="total-field">{this.totalValue()}</p>
-        <p data-testid="header-currency-field">BRL</p>
+      <header className="header">
+        
+          <div className="header-box">
+            <img src={ Logo } alt="" />
+
+            <div>
+              <span
+                data-testid="total-field"
+                className="header-totalExpenses"
+              >
+                Total de despesas:
+                {this.totalValue()}
+              </span>
+              <span data-testid="header-currency-field">BRL</span>
+            </div>
+
+            <div className="login-box">
+              <FaUserAlt />
+              <p data-testid="email-field">{ `${email}`}</p>
+            </div>            
+
+          </div>
+        
       </header>
     );
   }
@@ -32,7 +54,11 @@ const mapStateToProps = (state) => ({
 
 Header.propTypes = {
   email: PropTypes.string,
-  expenses: PropTypes.arrayOf(PropTypes.number),
-}.isRequired;
+  expenses: PropTypes.arrayOf(PropTypes.number).isRequired,
+};
+
+Header.defaultProps = {
+  email: '',
+};
 
 export default connect(mapStateToProps)(Header);

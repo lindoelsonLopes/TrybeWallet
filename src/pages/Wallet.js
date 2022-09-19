@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import { setCurrencies as currenciesAction } from '../actions';
 import Form from '../components/Form';
 import Table from '../components/Table';
+import './wallet.css';
 
 class Wallet extends React.Component {
   componentDidMount() {
@@ -15,10 +16,15 @@ class Wallet extends React.Component {
   render() {
     return (
       <div>
-        TrybeWallet
-        <Header />
-        <Form />
+        <section className="container-section">
+
+          <Header />
+          <Form />
+
+
+        </section>
         <Table />
+
       </div>
     );
   }

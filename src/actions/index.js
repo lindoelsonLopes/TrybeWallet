@@ -8,6 +8,7 @@ export const CURRENCIES_SUCCESS = 'CURRENCIES_SUCCESS';
 export const EXPENSES = 'EXPENSES';
 export const TOTAL = 'TOTAL';
 export const DELETE_EXPENSES = 'DELETE_EXPENSES';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 
 export const login = (payload) => (
   { type: USER_LOGIN, payload }
@@ -44,4 +45,8 @@ export const setCurrencies = () => async (dispatch) => {
 
 export const deleteAction = (payload) => (
   { type: DELETE_EXPENSES, payload }
+);
+
+export const editExpenseAction = (payload) => (
+  { type: EDIT_EXPENSE, payload }
 );

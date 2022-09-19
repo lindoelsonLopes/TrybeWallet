@@ -1,0 +1,124 @@
+/* stylelint-disable font-family-name-quotes */
+.login {
+  align-items: center;
+  background-color: #121214;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-logo img {
+  margin-bottom: 150px;
+  width: 250px;
+}
+
+.login-right {
+  align-items: center;
+  background-color: #29292e;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: center;
+  margin-left: 50px;
+  padding: 20px;
+  width: 400px;
+
+}
+
+.login-right h1 {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.loginInputEmail {
+  align-items: center;
+  background-color: #1a1a1d;
+  border-radius: 3px;
+  color: gray;
+  display: flex;
+  height: 50px;
+  margin: 5px;
+  padding: 3px;
+  width: 98%;
+}
+
+.loginInputEmail svg {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.loginInputEmail input {
+  background: transparent;
+  border: none;
+  color: #e1e1e6;
+  font-size: 17px;
+  margin-left: 10px;
+  margin-right: 10px;
+  outline-width: 0;
+  width: 100%;
+}
+
+.loginInputPassword {
+  align-items: center;
+  background-color: #1a1a1d;
+  border-radius: 3px;
+  color: gray;
+  display: flex;
+  height: 50px;
+  margin: 5px;
+  padding: 3px;
+  width: 98%;
+}
+
+.loginInputPassword svg {
+  font-size: 35px;
+  margin-left: 10px;
+}
+
+.loginInputPassword input {
+  background: transparent;
+  border: none;
+  color: #e1e1e6;
+  font-size: 17px;
+  margin-left: 10px;
+  margin-right: 10px;
+  outline-width: 0;
+  width: 100%;
+}
+
+.login-btn button {
+  background-color: #202024;
+  border: none;
+  border-radius: 5px;
+  color: #eff2f5;
+  font-size: 18px;
+  font-weight: 800;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  outline-width: 0;
+  width: 400px;
+}
+
+.login-right button:hover {
+  background-color: #1717;
+  color: #eff2f5;
+  cursor: pointer;
+}
+
+.login-btn button:disabled {
+  opacity: 0.5;
+}
+
+.login-eye {
+  align-items: center;
+  cursor: pointer;
+  font-size: 30px;
+  justify-content: center;
+  margin-right: 10px;
+}

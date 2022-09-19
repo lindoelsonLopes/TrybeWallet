@@ -1,11 +1,13 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { expensesAction, total } from '../actions';
 import { getExchange } from '../services/currencies';
+import './form.css';
 
 const INITIAL_STATE = {
-  value: '0',
+  value: '',
   description: '',
   currency: 'USD',
   method: 'Dinheiro',
@@ -56,78 +58,118 @@ class Form extends Component {
     } = this.state;
 
     return (
-      <form>
-        <label htmlFor="value">
-          Valor:
-          <input
-            type="number"
-            name="value"
-            value={ value }
-            id="value"
-            data-testid="value-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="description">
-          Descrição:
-          <input
-            type="text"
-            name="description"
-            value={ description }
-            id="description"
-            data-testid="description-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="currency">
-          Moeda:
-          <select
-            name="currency"
-            value={ currency }
-            onChange={ this.handleChange }
-            id="currency"
-            data-testid="currency-input"
-          >
-            {currencies.map((e) => <option key={ e }>{e}</option>)}
-          </select>
-        </label>
-        <label htmlFor="method">
-          Método:
-          <select
-            name="method"
-            value={ method }
-            onChange={ this.handleChange }
-            id="method"
-            data-testid="method-input"
-          >
-            <option>Dinheiro</option>
-            <option>Cartão de crédito</option>
-            <option>Cartão de débito</option>
-          </select>
-        </label>
-        <label htmlFor="tag">
-          Tag:
-          <select
-            name="tag"
-            value={ tag }
-            onChange={ this.handleChange }
-            id="tag"
-            data-testid="tag-input"
-          >
-            <option>Alimentação</option>
-            <option>Lazer</option>
-            <option>Trabalho</option>
-            <option>Transporte</option>
-            <option>Saúde</option>
-          </select>
-        </label>
-        <button
-          type="button"
-          onClick={ this.handleClick }
-        >
-          Adicionar Despesa
-        </button>
-      </form>
+      <section>
+        <div className="form-box">
+          <form className="form-container">
+            <div className="field">
+              <label htmlFor="description">
+                Descrição da despesa
+              </label>
+            </div>
+                <div className="control-description">
+                  <input
+                    type="text"
+                    name="description"
+                    value={ description }
+                    id="description"
+                    data-testid="description-input"
+                    onChange={ this.handleChange }
+                  />
+                </div>
+              
+            <div className="field">
+              <label htmlFor="tag">
+                Categoria da despesa
+              </label>
+            </div>
+                <div className="control-category">                  
+                  <select
+                    name="tag"
+                    value={ tag }
+                    onChange={ this.handleChange }
+                    id="tag"
+                    data-testid="tag-input"
+                  >
+                    <option>Alimentação</option>
+                    <option>Lazer</option>
+                    <option>Trabalho</option>
+                    <option>Transporte</option>
+                    <option>Saúde</option>
+                  </select>
+                  
+                </div>
+
+            <div className="field">
+              <label htmlFor="value" className="label">
+                Valor
+              </label>
+            </div>
+                <div className="control-value">
+                  <input
+                    type="number"
+                    name="value"
+                    value={ value }
+                    id="value"
+                    data-testid="value-input"
+                    onChange={ this.handleChange }
+                  />
+                </div>
+              
+            <div className="field">
+              <label htmlFor="method">
+                Método de pagamento
+              </label>
+            </div>
+                <div className="control-method">
+                  
+                    <select
+                      name="method"
+                      value={ method }
+                      onChange={ this.handleChange }
+                      id="method"
+                      data-testid="method-input"
+                    >
+                      <option>Dinheiro</option>
+                      <option>Cartão de crédito</option>
+                      <option>Cartão de débito</option>
+                    </select>
+                  
+                </div>
+              
+            <div>  
+              <label htmlFor="currency" className="label-currencies">
+                Moeda
+              </label>
+            </div>
+                <div className="control-currency">
+                  
+                    <select
+                      name="currency"
+                      value={ currency }
+                      onChange={ this.handleChange }
+                      id="currency"
+                      data-testid="currency-input"
+                    >
+                      {currencies.map((e) => (
+                        <option key={ e }>{e}</option>
+                      ))}
+                    </select>
+                  
+                </div>
+              
+
+          </form>
+
+          </div>
+          <div className="button-box">
+            <button
+              type="button"
+              onClick={ this.handleClick }
+            >
+              Adicionar Despesa
+            </button>
+        </div>
+      </section>
     );
   }
 }

@@ -4,6 +4,7 @@ import {
   CURRENCIES_FAIL,
   CURRENCIES_SUCCESS,
   DELETE_EXPENSES,
+  EDIT_EXPENSE,
   EXPENSES,
   TOTAL,
 } from '../actions';
@@ -12,7 +13,7 @@ const INITIAL_STATE = {
   currencies: [],
   expenses: [],
   fetchcurrencies: false,
-  total: '0',
+  total: '',
   error: '',
 };
 
@@ -49,6 +50,13 @@ const wallet = (state = INITIAL_STATE, { type, payload }) => {
     return {
       ...state,
       expenses: state.expenses.filter((element) => element.id !== payload),
+    };
+
+  case EDIT_EXPENSE:
+    return {
+      ...state,
+      isEdit: true,
+      editSelect: state.expenses.find((e) => e.id === payload),
     };
   default:
     return state;

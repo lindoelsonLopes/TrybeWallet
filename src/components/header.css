@@ -1,0 +1,30 @@
+/* stylelint-disable comment-empty-line-before */
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.header-box {
+  align-items: center;
+  color: #003be5;
+  display: flex;
+  /* stylelint-disable-next-line font-family-name-quotes */
+  font-family: 'Epilogue', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  justify-content: space-around;
+  line-height: 14px;
+  margin-top: 90px;
+  width: 1037px;
+}
+
+.header img {
+  width: 200px;
+}
+
+.login-box {
+  display: flex;
+  gap: 8px;
+}

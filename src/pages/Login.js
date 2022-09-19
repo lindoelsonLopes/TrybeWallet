@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { MdEmail, MdLock } from 'react-icons/md';
+import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 import { login } from '../actions';
-import loginCss from './login.module.css';
+import './login.css';
+import Wallet from '../images/wallet.png';
 
 class Login extends React.Component {
   constructor() {
@@ -12,6 +15,7 @@ class Login extends React.Component {
       email: '',
       password: '',
       isDisabled: true,
+      showEye: false,
     };
   }
 
@@ -34,48 +38,75 @@ class Login extends React.Component {
     }, this.validate);
   }
 
-  render() {
-    const { isDisabled, email, password } = this.state;
-    const { userLogin } = this.props;
-    return (
-      <div className={ loginCss.login_header }>
-        <h1>Login Here</h1>
-        <form className="login__form">
-          <label htmlFor="email">
-            <input
-              name="email"
-              type="email"
-              data-testid="email-input"
-              placeholder="Email"
-              value={ email }
-              onChange={ this.handleChange }
-            />
-          </label>
+   handleClick = (e) => {
+     e.preventDefault();
+     this.setState((state) => ({
+       showEye: !state.showEye }));
+   };
 
-          <label htmlFor="password">
-            <input
-              name="password"
-              type="password"
-              data-testid="password-input"
-              placeholder="senha"
-              value={ password }
-              onChange={ this.handleChange }
-            />
-          </label>
+   render() {
+     const { isDisabled, email, password, showEye } = this.state;
+     const { userLogin } = this.props;
+     return (
+       <div className="login">
+         <div className="login-logo">
+           <img src={ Wallet } alt="imagem de uma carteira" />
+         </div>
+         <div className="login-right">
+           <h1>Login Here</h1>
+           <div className="loginInputEmail">
+             <MdEmail />
+             <label htmlFor="email">
+               <input
+                 name="email"
+                 type="email"
+                 data-testid="email-input"
+                 placeholder="Digite seu email"
+                 value={ email }
+                 onChange={ this.handleChange }
+               />
+             </label>
+           </div>
+           <div className="loginInputPassword">
+             <MdLock />
+             {/* <label htmlFor="password"> */}
+             <input
+               name="password"
+               type={ showEye ? 'text' : 'password' }
+               data-testid="password-input"
+               placeholder="Digite a senha"
+               value={ password }
+               onChange={ this.handleChange }
+             />
+             {/* </label> */}
+             <div className="login-eye">
+               {showEye ? (
+                 <AiFillEye
+                   size={ 20 }
+                   onClick={ this.handleClick }
+                 />
+               ) : (
+                 <AiFillEyeInvisible
+                   size={ 20 }
+                   onClick={ this.handleClick }
+                 />
+               )}
+             </div>
+           </div>
 
-          <Link to="/carteira">
-            <button
-              type="button"
-              disabled={ isDisabled }
-              onClick={ () => { userLogin(email); } }
-            >
-              Entrar
-            </button>
-          </Link>
-        </form>
-      </div>
-    );
-  }
+           <Link className="login-btn" to="/carteira">
+             <button
+               type="button"
+               disabled={ isDisabled }
+               onClick={ () => { userLogin(email); } }
+             >
+               Entrar
+             </button>
+           </Link>
+         </div>
+       </div>
+     );
+   }
 }
 
 Login.propTypes = {

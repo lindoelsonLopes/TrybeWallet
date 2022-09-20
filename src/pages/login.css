@@ -10,7 +10,7 @@
 
 .login-logo img {
   margin-bottom: 150px;
-  width: 250px;
+  width: 350px;
 }
 
 .login-right {
@@ -29,7 +29,7 @@
 
 .login-right h1 {
   color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Epilogue', sans-serif;
   font-size: 50px;
   margin-bottom: 20px;
 }

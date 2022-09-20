@@ -9,19 +9,21 @@ class Table extends Component {
     const { expenses, delExpenses } = this.props;
     return (
       <div className="table-container">
-        <table className="box-table">
+        <table className="content-table">
           <thead>
             <tr>
-              <th>Descrição |</th>
-              <th>Tag |</th>
-              <th>Método de pagamento |</th>
-              <th>Valor |</th>
-              <th>Moeda |</th>
-              <th>Câmbio utilizado |</th>
-              <th>Valor convertido |</th>
-              <th>Moeda de conversão |</th>
-              <th>Editar/Excluir</th>
+              <th width="100px">Descrição</th>
+              <th width="100px">Valor</th>
+              <th width="100px">Tag</th>
+              <th width="100px">Método de pagamento</th>
+              <th width="100px">Moeda</th>
+              <th width="100px">Câmbio utilizado</th>
+              <th width="100px">Valor convertido</th>
+              <th width="100px">Moeda de conversão</th>
+              <th width="100px">Editar/Excluir</th>
             </tr>
+          </thead>
+          <tbody>           
             { expenses.map(({
               description,
               tag,
@@ -34,16 +36,16 @@ class Table extends Component {
               const { name, ask } = exchangeRates[currency];
               return (
                 <tr key={ id }>
-                  <td>{description}</td>
-                  <td>{tag}</td>
-                  <td>{method}</td>
-                  <td>{Number(value).toFixed(2).toString()}</td>
-                  <td>{currency}</td>
-                  <td>{name}</td>
-                  <td>{Number(ask).toFixed(2).toString()}</td>
-                  <td>{Number(value * ask).toFixed(2).toString()}</td>
-                  <td>Real</td>
-                  <td>
+                  <td width="100px">{description}</td>
+                  <td width="100px">{tag}</td>
+                  <td width="100px">{Number(value).toFixed(2).toString()}</td>
+                  <td width="100px">{method}</td>
+                  <td width="100px">{currency}</td>
+                  {/* <td>{name}</td> */}
+                  <td width="100px">{Number(ask).toFixed(2).toString()} {name}</td>
+                  <td width="100px">{Number(value * ask).toFixed(2).toString()}</td>
+                  <td width="100px">Real</td>
+                  <td width="100px">
                     <button
                       className="button-delete"
                       type="button"
@@ -51,7 +53,7 @@ class Table extends Component {
                       onClick={ () => editExpenseAction(id) }
                     >
                       Editar
-                    </button>
+                    </button>                    
                     <button
                       className="button-edit"
                       type="button"
@@ -59,12 +61,12 @@ class Table extends Component {
                       onClick={ () => delExpenses(id) }
                     >
                       Excluir
-                    </button>
-                  </td>
+                    </button>                   
+                  </td>                  
                 </tr>
               );
             })}
-          </thead>
+          </tbody>
         </table>
       </div>
     );

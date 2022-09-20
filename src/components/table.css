@@ -1,3 +1,7 @@
+/* stylelint-disable no-descending-specificity */
+
+/* stylelint-disable selector-list-comma-space-before */
+
 /* stylelint-disable font-family-name-quotes */
 
 /* stylelint-disable string-quotes */
@@ -6,7 +10,6 @@
   background-color: #003be5;
   border-radius: 10px;
   display: flex;
-  height: 464px;
   justify-content: center;
   margin: auto;
   margin-bottom: 100px;
@@ -14,15 +17,33 @@
   width: 1155px;
 }
 
-.box-table {
-  align-items: center;
+.content-table {
   color: white;
-  display: flex;
 
   /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font-family: "Epilogue";
-  padding-top: 240px;
+  padding-top: 340px;
 }
+
+.content-table thead tr {
+  font-weight: 700;
+}
+
+/* stylelint-disable-next-line selector-list-comma-space-after */
+.content-table th {
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.content-table td {
+  display: inline-block;
+  padding: 0 10px;
+  text-align: center;
+}
+
+/* .content-table tbody td {
+  width: 105px;
+} */
 
 .button-delete {
   background: rgb(223, 111, 111);
@@ -36,4 +57,13 @@
 .button-delete:hover {
   background: red;
   color: white;
+}
+
+.button-edit {
+  background: #2fc18c;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  width: 100px;
 }

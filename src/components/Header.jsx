@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FaUserAlt } from 'react-icons/fa';
-import Logo from '../images/logoTipo.png';
+import Logo from '../images/logoWallet2.png';
 import './header.css';
 
 class Header extends Component {

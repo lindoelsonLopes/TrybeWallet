@@ -6,7 +6,7 @@ import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 import { login } from '../actions';
 import './login.css';
-import Wallet from '../images/wallet.png';
+import Wallet from '../images/logoWallet2.png';
 
 class Login extends React.Component {
   constructor() {
